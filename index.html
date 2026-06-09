@@ -1,17 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FaisalSmartstore Admin</title>
+</head>
+<body>
+<h2>Add Product</h2>
 
-<!-- do not change the markup -->
-<a href="#">
-  Checkout
-</a>
+<input type="text" id="name" placeholder="Product Name">
+<input type="number" id="price" placeholder="Price">
+<button onclick="addProduct()">Add Product</button>
 
-<!-- 
-1. make look like a button
-2. change text color red on hover
+<script>
+function addProduct() {
+  let name = document.getElementById("name").value;
+  let price = document.getElementById("price").value;
 
-Cannot change html, only css.
-Look closely at
--->  
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+  products.push({name, price});
+  localStorage.setItem("products", JSON.stringify(products));
 
-<div></div>
-<div></div>
-<div></div>
+  alert("Product Added");
+}
+</script>
+</body>
+</html>
